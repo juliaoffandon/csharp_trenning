@@ -15,13 +15,29 @@ namespace WebAdressbooksTests
         {
         }
 
-        internal void Create(object contact)
+        public ContactHelper Remove(int v)
         {
-            throw new NotImplementedException();
+            manager.Navigator.GoToContactsPage();
+            SelectContact(v);
+            RemoveContact();
+            ReturnToHomePage();
+            return this;
         }
 
+        public ContactHelper Modify(int v, ContactData newData)
+        {
+            manager.Navigator.GoToContactsPage();
+            SelectContact(v);
+            InitContactModification();
+            FillContactForm(newData);
+            SubmitContactModification();
+            ReturnToHomePage();
+            return this;
+        }
+               
         public ContactHelper Create(ContactData contact)
         {
+            manager.Navigator.GoToContactsPage();
             InitNewContactCreation();
             FillContactForm(contact);
             SubmitContactCreation();
@@ -52,6 +68,30 @@ namespace WebAdressbooksTests
         public ContactHelper ReturnToHomePage()
         {
             driver.FindElement(By.LinkText("home page")).Click();
+            return this;
+        }
+        public ContactHelper RemoveContact()
+        {
+            driver.FindElement(By.XPath("//input[@value='Delete']")).Click();
+            driver.SwitchTo().Alert().Accept();
+            return this;
+        }
+
+        public ContactHelper SelectContact(int v)
+        {
+            driver.FindElement(By.XPath("(//input[@name='selected[]'])[" + v + "]")).Click();
+            return this;
+        }
+
+        public ContactHelper SubmitContactModification()
+        {
+            driver.FindElement(By.Name("update")).Click();
+            return this;
+        }
+
+        public ContactHelper InitContactModification()
+        {
+            driver.FindElement(By.XPath("//img[@alt='Edit']")).Click();
             return this;
         }
 
