@@ -20,6 +20,7 @@ namespace WebAdressbooksTests
             manager.Navigator.GoToContactsPage();
             SelectContact(v);
             RemoveContact();
+            SayYes();
             ReturnToHomePage();
             return this;
         }
@@ -67,12 +68,17 @@ namespace WebAdressbooksTests
         }
         public ContactHelper ReturnToHomePage()
         {
-            driver.FindElement(By.LinkText("home page")).Click();
+            driver.Navigate().GoToUrl("http://localhost/addressbook/");
             return this;
         }
         public ContactHelper RemoveContact()
         {
             driver.FindElement(By.XPath("//input[@value='Delete']")).Click();
+            return this;
+        }
+
+        public ContactHelper SayYes()
+        {
             driver.SwitchTo().Alert().Accept();
             return this;
         }
