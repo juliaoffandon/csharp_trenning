@@ -53,12 +53,8 @@ namespace WebAdressbooksTests
         }
         public ContactHelper FillContactForm(ContactData contact)
         {
-            driver.FindElement(By.Name("firstname")).Click();
-            driver.FindElement(By.Name("firstname")).Clear();
-            driver.FindElement(By.Name("firstname")).SendKeys(contact.First_name);
-            driver.FindElement(By.Name("lastname")).Click();
-            driver.FindElement(By.Name("lastname")).Clear();
-            driver.FindElement(By.Name("lastname")).SendKeys(contact.Last_name);
+            Type(By.Name("firstname"), contact.First_name);
+            Type(By.Name("lastname"), contact.Last_name);
             return this;
         }
         public ContactHelper SubmitContactCreation()

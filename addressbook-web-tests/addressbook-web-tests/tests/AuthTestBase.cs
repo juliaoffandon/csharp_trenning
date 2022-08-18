@@ -5,16 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
 
-
 namespace WebAdressbooksTests
 {
-    [TestFixture]
-    public class ContactRemoveTests : AuthTestBase
+    public class AuthTestBase : TestBase
     {
-        [Test]
-        public void ContactRemoveTest()
-        {           
-            app.Contacts.Remove(1);
+        [SetUp]
+        public void SetupLogin()
+        {
+            app.Auth.Login(new AccountData("admin", "secret"));
         }
     }
 }
