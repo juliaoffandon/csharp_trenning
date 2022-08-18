@@ -18,6 +18,7 @@ namespace WebAdressbooksTests
         public ContactHelper Remove(int v)
         {
             manager.Navigator.GoToContactsPage();
+            
             SelectContact(v);
             RemoveContact();
             SayYes();
@@ -80,7 +81,7 @@ namespace WebAdressbooksTests
         }
 
         public ContactHelper SelectContact(int v)
-        {
+        {           
             driver.FindElement(By.XPath("(//input[@name='selected[]'])[" + v + "]")).Click();
             return this;
         }
@@ -95,6 +96,11 @@ namespace WebAdressbooksTests
         {
             driver.FindElement(By.XPath("//img[@alt='Edit']")).Click();
             return this;
+        }
+
+        public bool IsContactPresent()
+        {
+            return IsElementPresent(By.XPath("//div[@id='content']/form/input[1]"));
         }
 
     }

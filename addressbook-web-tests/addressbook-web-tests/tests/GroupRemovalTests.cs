@@ -12,7 +12,19 @@ namespace WebAdressbooksTests
         
         [Test]
         public void GroupRemovalTest()
-        {            
+        {
+            if (app.Groups.IsGroupPresent())
+            {
+                return;
+            }
+            else
+            {
+                GroupData group = new GroupData("buba");
+                group.Header = "ziry";
+                group.Footer = "aboba";
+
+                app.Groups.Create(group);
+            }
             app.Groups.Remove(1);
         }                              
     }

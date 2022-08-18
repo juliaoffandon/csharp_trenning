@@ -89,5 +89,10 @@ namespace WebAdressbooksTests
             driver.FindElement(By.Name("edit")).Click();
             return this;
         }
+
+        public bool IsGroupPresent()
+        {
+            return IsElementPresent(By.XPath("//div[@id='content']/form/input[1]"));
+        }
     }
 }

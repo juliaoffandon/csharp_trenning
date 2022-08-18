@@ -18,6 +18,18 @@ namespace WebAdressbooksTests
             newData.Header = null;
             newData.Footer = null;
 
+            if (app.Groups.IsGroupPresent())
+            {
+                return;
+            }
+            else
+            {
+                GroupData group = new GroupData("buba");
+                group.Header = "ziry";
+                group.Footer = "aboba";
+
+                app.Groups.Create(group);
+            }
             app.Groups.Modify(1, newData);
         }
     }

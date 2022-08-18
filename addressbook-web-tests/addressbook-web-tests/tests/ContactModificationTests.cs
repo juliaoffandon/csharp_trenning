@@ -14,8 +14,17 @@ namespace WebAdressbooksTests
         public void ContactModificationTest()
         {
             ContactData newData = new ContactData("Pumba", "Timon");
-            
-            app.Contacts.Modify(1, newData);
+
+            if (app.Contacts.IsContactPresent())
+            {
+                return;
+            }
+            else
+            {
+                ContactData contact = new ContactData("Aboba", "Buba");
+                app.Contacts.Create(contact);
+            }
+                app.Contacts.Modify(1, newData);
         }
 
     }
