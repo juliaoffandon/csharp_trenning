@@ -100,7 +100,7 @@ namespace WebAdressbooksTests
 
         public bool IsContactPresent()
         {
-            return IsElementPresent(By.XPath("//div[@id='content']/form/input[1]"));
+            return IsElementPresent(By.XPath("//input[@type='checkbox']"));
         }
 
     }

@@ -13,11 +13,8 @@ namespace WebAdressbooksTests
         [Test]
         public void GroupRemovalTest()
         {
-            if (app.Groups.IsGroupPresent())
-            {
-                return;
-            }
-            else
+            if (!app.Groups.IsGroupPresent())
+            
             {
                 GroupData group = new GroupData("buba");
                 group.Header = "ziry";

@@ -18,11 +18,7 @@ namespace WebAdressbooksTests
             newData.Header = null;
             newData.Footer = null;
 
-            if (app.Groups.IsGroupPresent())
-            {
-                return;
-            }
-            else
+            if (!app.Groups.IsGroupPresent())           
             {
                 GroupData group = new GroupData("buba");
                 group.Header = "ziry";

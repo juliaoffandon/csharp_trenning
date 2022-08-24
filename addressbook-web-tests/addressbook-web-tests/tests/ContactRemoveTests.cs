@@ -14,11 +14,8 @@ namespace WebAdressbooksTests
         [Test]
         public void ContactRemoveTest()
         {           
-            if (app.Contacts.IsContactPresent())
-            {
-                return;
-            }
-            else
+            if (!app.Contacts.IsContactPresent())
+          
             {
                 ContactData contact = new ContactData("Aboba", "Buba");
                 app.Contacts.Create(contact);               
