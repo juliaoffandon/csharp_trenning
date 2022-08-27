@@ -45,6 +45,12 @@ namespace WebAdressbooksTests
             return this;
         }
 
+        public GroupHelper GoToGroupsPage()
+        {
+            manager.Navigator.GoToGroupsPage();
+            return this;
+        }
+
         public GroupHelper SubmitGroupCreation()
         {
             driver.FindElement(By.Name("submit")).Click();

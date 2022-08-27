@@ -18,6 +18,8 @@ namespace WebAdressbooksTests
             newData.Header = null;
             newData.Footer = null;
 
+            app.Groups.GoToGroupsPage();
+
             if (!app.Groups.IsGroupPresent())           
             {
                 GroupData group = new GroupData("buba");

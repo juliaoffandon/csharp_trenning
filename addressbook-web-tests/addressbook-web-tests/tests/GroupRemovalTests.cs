@@ -13,6 +13,8 @@ namespace WebAdressbooksTests
         [Test]
         public void GroupRemovalTest()
         {
+            app.Groups.GoToGroupsPage();
+
             if (!app.Groups.IsGroupPresent())
             
             {
